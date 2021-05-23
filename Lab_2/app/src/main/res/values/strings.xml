@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">laboratorium_2</string>
+<!--    tekst po Polsku:-->
+
+    <string name="pierwszy_tekst">Witaj pierwszy tekst!</string>
+
+    <string name="drugi_tekst">Witaj drugi tekst!</string>
+
+    <string name="trzeci_tekst">Witaj trzeci tekst!</string>
+
+    <string name="czwarty_tekst">Witaj czwarty tekst!</string>
+
+    <string name="piaty_tekst">Witaj piaty tekst!</string>
+    <string name="moj_tekst">niech zawsze świeci Słońce</string>
+
+    <string name="szosty_tekst">nie wiem co napisać</string>
+
+
 </resources>

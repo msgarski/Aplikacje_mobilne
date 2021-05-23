@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">laboratorium_2</string>
+    <string name="drugi_tekst" translatable="false">Hallo zweiter Text!</string>
+    <string name="trzeci_tekst" translatable="false">Hallo dritter Text!</string>
+    <string name="czwarty_tekst" translatable="false">Hallo vierter Text!</string>
+    <string name="piaty_tekst" translatable="false">Hallo fünfter Text!</string>
+    <string name="pierwszy_tekst" translatable="false">Hallo erster Text!</string>
+    <string name="moj_tekst" translatable="false">Möge die Sonne immer scheinen</string>
+    <string name="szosty_tekst">ich weiß nicht was ich schreiben soll</string>
+</resources>
