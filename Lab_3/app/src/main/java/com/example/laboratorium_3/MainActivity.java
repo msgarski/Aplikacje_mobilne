@@ -3,6 +3,7 @@ package com.example.laboratorium_3;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.laboratorium_3.ui.login.LoginActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -85,6 +86,8 @@ public class MainActivity extends AppCompatActivity {
     }
     public void kliknij(View view){
         Toast.makeText(getApplicationContext(), "Kliknięto przycisk BUTTON", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
 
     }
     public void pstryknij(View view){
