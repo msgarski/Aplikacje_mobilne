@@ -1,6 +1,8 @@
 package com.example.laboratorium_3;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 
 import com.example.laboratorium_3.ui.login.LoginActivity;
@@ -9,12 +11,14 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.provider.MediaStore;
 import android.view.View;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -94,6 +98,18 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Kliknięto przycisk PHOTO", Toast.LENGTH_SHORT).show();
         Intent intencja = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intencja, REQUEST_IMAGE_CAPTURE);
+
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            //imageView.setImageBitmap(imageBitmap);
+            ConstraintLayout lay = (ConstraintLayout)findViewById(R.id.cont);
+            lay.setBackground(new BitmapDrawable(getResources(), imageBitmap));
+        }
 
     }
 }
