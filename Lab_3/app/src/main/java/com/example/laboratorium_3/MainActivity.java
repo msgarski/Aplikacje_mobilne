@@ -1,5 +1,6 @@
 package com.example.laboratorium_3;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -8,6 +9,7 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.provider.MediaStore;
 import android.view.View;
 
 import android.view.Menu;
@@ -15,6 +17,8 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    static final int REQUEST_IMAGE_CAPTURE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Kliknięto przycisk FAB", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
     @Override
@@ -80,6 +85,12 @@ public class MainActivity extends AppCompatActivity {
     }
     public void kliknij(View view){
         Toast.makeText(getApplicationContext(), "Kliknięto przycisk BUTTON", Toast.LENGTH_SHORT).show();
+
+    }
+    public void pstryknij(View view){
+        Toast.makeText(getApplicationContext(), "Kliknięto przycisk PHOTO", Toast.LENGTH_SHORT).show();
+        Intent intencja = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(intencja, REQUEST_IMAGE_CAPTURE);
 
     }
 }
