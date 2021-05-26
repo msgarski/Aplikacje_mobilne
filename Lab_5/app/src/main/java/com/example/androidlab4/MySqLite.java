@@ -6,35 +6,18 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class MySqLite extends SQLiteOpenHelper {
+public class MySQLite extends SQLiteOpenHelper {
+
     private static final int DATABASE_VERSION = 1;
 
-    public void MySQLite(Context context) { super(context, "animalsDB", null, DATABASE_VERSION); }
+    public MySQLite(Context context) { super(context, "animalsDB",null, DATABASE_VERSION); }
 
-    @Override
-    public void onCreate(SQLiteDatabase database){
-        String DATABASE_CREATE =
-                "create table animals " +
-                        "(_id integer primary key autoincrement," +
-                        "gatunek text not null," + "kolor text not null," +
-                        "wielkosc real not null," + "opis text not null);";
-        database.execSQL(DATABASE_CREATE);
-    }
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
-        db.execSQL("DROP TABLE IF EXISTS animals");
-        onCreate(db);
-    }
-    public void dodaj(Animal zwierz){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put("gatunek", zwierz.getGatunek());
-        values.put("kolor", zwierz.getKolor());
-        values.put("wielkosc", zwierz.getWielkosc());
-        values.put("opis", zwierz.getOpis());
-        db.insert("animals", null, values);
-        db.close();
-    }
+    @Override public void onCreate(SQLiteDatabase database) { String DATABASE_CREATE = "create table animals " + "(_id integer primary key autoincrement," + "gatunek text not null," + "kolor text not null," + "wielkosc real not null," + "opis text not null);"; database.execSQL(DATABASE_CREATE); }
+
+    @Override public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) { db.execSQL("DROP TABLE IF EXISTS animals"); onCreate(db);}
+
+    public void dodaj(Animal zwierz){ SQLiteDatabase db = this.getWritableDatabase(); ContentValues values = new ContentValues(); values.put("gatunek", zwierz.getGatunek()); values.put("kolor", zwierz.getKolor()); values.put("wielkosc", zwierz.getWielkosc()); values.put("opis", zwierz.getOpis()); db.insert("animals", null, values); db.close();}
+
     public void usun(String id) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete("animals", "_id = ?", new String[]{id});
@@ -73,11 +56,7 @@ public class MySqLite extends SQLiteOpenHelper {
 
         return zwierz;
     }
-    public Cursor lista() {
-        SQLiteDatabase db = this.getReadableDatabase();
-        return db.rawQuery("Select * from animals", null);
-    }
-    
 
+    public Cursor lista(){ SQLiteDatabase db = this.getReadableDatabase(); return db.rawQuery("Select * from animals",null);}
 
 }

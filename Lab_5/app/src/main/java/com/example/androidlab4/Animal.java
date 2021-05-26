@@ -20,7 +20,7 @@ public class Animal implements Serializable {
 
     @Override
     public String toString(){
-        return "Zwierze: [id=" + id + ", gatunek=" + gatunek + ", kolor=" + kolor + ", wielkosc=" + wielkosc;
+        return "Zwierze: [id=" + _id + ", gatunek=" + gatunek + ", kolor=" + kolor + ", wielkosc=" + wielkosc;
     }
     // gettery do cech zwierzęcia:
     public String getOpis(){ return opis; }
@@ -31,7 +31,7 @@ public class Animal implements Serializable {
     public int getid() {
         return _id;
     }
-    public void setId(int id){ this._id = id}
+    public void setId(int id){ this._id = id;}
 
 
 }
