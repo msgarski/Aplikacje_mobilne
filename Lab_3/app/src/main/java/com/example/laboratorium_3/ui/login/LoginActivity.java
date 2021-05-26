@@ -62,6 +62,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onChanged(@Nullable LoginResult loginResult) {
                 if (loginResult == null) {
+
                     return;
                 }
                 loadingProgressBar.setVisibility(View.GONE);
@@ -74,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
                 setResult(Activity.RESULT_OK);
 
                 //Complete and destroy login activity once successful
-                finish();
+                //finish();
             }
         });
 
@@ -87,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 // ignore
+
             }
 
             @Override
@@ -127,5 +129,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
+
     }
+
 }

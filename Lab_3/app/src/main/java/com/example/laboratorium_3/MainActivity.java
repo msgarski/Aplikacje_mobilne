@@ -18,8 +18,12 @@ import android.view.View;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
+
+import java.util.*;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,6 +43,45 @@ public class MainActivity extends AppCompatActivity {
 //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
                 Toast.makeText(getApplicationContext(), "Kliknięto przycisk FAB", Toast.LENGTH_SHORT).show();
+            }
+        });
+//        final Button button = findViewById(R.id.button2);
+//        button.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View arg0) {
+//                Toast.makeText(getApplicationContext(), "Kliknięto przycisk LOSOWANIE", Toast.LENGTH_SHORT).show();
+//                button.setCompoundDrawablesWithIntrinsicBounds(android.R.drawable.presence_audio_busy, 0, 0, 0);
+//            }
+//        });
+
+        ImageButton button = (ImageButton)findViewById(R.id.button2);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+                    public  void onClick(View view){
+                Toast.makeText(getApplicationContext(), "Kliknięto przycisk LOSOWANIE", Toast.LENGTH_SHORT).show();
+                Random random = new Random();
+                int liczbaLosowa = random.nextInt(5);
+                System.out.println
+                        ("The Randomly generated integer is : " + liczbaLosowa);
+                switch (liczbaLosowa) {
+                    case 0:
+                        button.setImageDrawable(getResources().getDrawable(R.drawable.maestro, getTheme()));
+                        break;
+                    case 1:
+                        button.setImageDrawable(getResources().getDrawable(android.R.drawable.presence_busy, getTheme()));
+                        break;
+                    case 2:
+                        button.setImageDrawable(getResources().getDrawable(R.drawable.western, getTheme()));
+                        break;
+                    case 3:
+                        button.setImageDrawable(getResources().getDrawable(android.R.drawable.arrow_up_float, getTheme()));
+                        break;
+                    case 4:
+                        button.setImageDrawable(getResources().getDrawable(R.drawable.xing, getTheme()));
+                        break;
+                    default:
+                }
             }
         });
 
@@ -100,6 +143,26 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(intencja, REQUEST_IMAGE_CAPTURE);
 
     }
+//    public void losuj(View view){
+//        Toast.makeText(getApplicationContext(), "Kliknięto przycisk LOSOWANIE", Toast.LENGTH_SHORT).show();
+//        Random random = new Random();
+//        int liczbaLosowa = random.nextInt();
+//        System.out.println
+//                ("The Randomly generated integer is : " + liczbaLosowa);
+////        R.id.button2.setImageDrawable(getResources().getDrawable(R.drawable.icon, getTheme()));
+////        R.id.button2.setCompoundDrawablesWithIntrinsicBounds(drawable.low, 0, 0, 0);
+//
+//        //button = findViewById(R.id.button2);
+////        if (liczbaLosowa<=0) {
+////            button.setImageDrawable(getResources().getDrawable(android.R.drawable.presence_audio_busy));
+////            }
+////        else {
+////            button.setImageDrawable(getResources().getDrawable(R.drawable.sample));
+////            }
+    //      ImageButton btn = (ImageButton)findViewById(R.id.imageButton1);
+//          btn.setImageResource(R.drawable.actions_record);
+//
+//    }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="155dp"
         android:onClick="kliknij"
-        android:text="Button"
+        android:text="Logowanie"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/nav_host_fragment"
         app:layout_constraintTop_toTopOf="@+id/nav_host_fragment" />
@@ -39,4 +39,21 @@
         android:onClick="pstryknij"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="@+id/nav_host_fragment" />
+
+    <ImageButton
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="150dp"
+        android:layout_marginBottom="32dp"
+        android:onClick="losuj"
+        android:text="Losowanie"
+        app:layout_constraintBottom_toTopOf="@+id/photo"
+        app:srcCompat="@drawable/ic_launcher_background"
+        android:padding="20dp"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+
+        app:layout_constraintEnd_toEndOf="@+id/nav_host_fragment" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
